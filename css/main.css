@@ -1,0 +1,360 @@
+/* Global CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*
+============================================
+Typography
+============================================
+*/
+/* Base font for body text */
+@font-face {
+    font-family: cyberpunkwaifus;
+    src: url(fnt/cyberpunkwaifus.ttf);
+}
+body {
+    font-family: 'cyberpunkwaifus', Helvetica, Arial, sans-serif;
+    font-size: 18px; /* Default body font size */
+    line-height: 1.6; /* Improves readability */
+    color: #01012b; 
+}
+
+/* Headings */
+/* H1 for main titles */
+h1 {
+    font-size: 2rem; /* Large font size for titles */
+    font-weight: 700; /* Bold for emphasis */
+    color: #ff2a6d; 
+    margin-bottom: 1rem; /* Space below heading */
+}
+
+/* H2 for subheadings */
+h2 {
+    font-size: 1.8rem; /* Slightly smaller than H1 */
+    font-weight: 600;
+    color: #005678;
+    margin-bottom: 0.8rem;
+}
+
+/* H3 for smaller subheadings */
+h3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #005678; /* Lighter gray for hierarchy */
+    margin-bottom: 0.6rem;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.125rem; /* Standard body text: was 1rem */
+    color: #d1f7ff; /* Darker gray for readability */
+}
+
+/* Links */
+a {
+    color: #05d9e8; /* Blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Utility classes for alignment */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+
+/*
+============================================
+Sidebar
+============================================
+*/
+/* Background */
+.sidebar {
+    position: fixed; /* Fix sidebar to viewport */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full height of the viewport */
+    width: 80px; /* Initial width */
+    background-color: #005678; /* Background color */
+    padding: 0.4rem 0.8rem;
+    transition: all 0.5s ease; /* Smooth transition for width changes */
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+
+/* Implementing Javascript */
+.sidebar.active ~ .main-content {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+.sidebar.active {
+    width: 250px;
+}
+
+/* Button (default state) */
+.sidebar #btn {
+    position: absolute;
+    color: #d1f7ff; /* white */
+    top: 0.4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+    content: "☰"; /* Hamburger icon */
+    display: inline-block;
+}
+
+/* Pseudo-element for the button icon (default state) */
+.sidebar #btn::before {
+    content: "☰"; /* Hamburger icon */
+    display: inline-block;
+}
+
+/* Active state */
+.sidebar.active #btn {
+    left: 90%;
+}
+
+/* Change icon in active state */
+.sidebar.active #btn::before {
+    content: "✖"; /* Close icon */
+}
+
+
+/* Logo: text that pulls out left of sandwich icon */
+.sidebar .top .logo {
+    color: 	#d1f7ff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+}
+.sidebar.active .top .logo {
+    /* see logo and .top text only when sidebar is active */
+    opacity: 1;
+}
+.top .logo i {
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+/* User Image */
+.user-img {
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid 	#d1f7ff;
+}
+/* User Text */
+.user {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+.user p { /* User name text */
+    color: 	#d1f7ff;
+    opacity: 1;
+    margin-left: 1rem;
+}
+
+/* 
+toggles opacity of user name with sidebar activity
+so the name disappears when sidebar is inactive 
+*/
+.sidebar p {
+    opacity: 0;
+}
+.sidebar.active p {
+    opacity: 1;
+}
+
+/* list stuff for sidebar buttons */
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+/* style link tags */
+.sidebar ul li a {
+    color: 	#d1f7ff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+/* hover styling for list items */
+.sidebar ul li a:hover {
+    background-color: 	#d1f7ff;
+    color: #01012b; /* should match background of main page */
+}
+
+/* sidebar list item icons */
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+/* disappear nav text when sidebar closed */
+.sidebar .nav-item {
+    opacity: 0;
+}
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+/* style tooltips */
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    /* taking here */
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.6rem;
+    padding: 0.4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden
+}
+.sidebar ul li:hover .tooltip {
+    background-color: 	#d1f7ff;
+    opacity: 1;
+    visibility: visible
+}
+/* disable tool tip when sidebar is active */
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+
+/*
+============================================
+Main Content
+============================================
+*/
+.main-content {
+    position: relative;
+    background-color: #01012b; /* background color for main page */
+    min-height: 100vh; /* Ensure content spans the full viewport height */
+    top: 0;
+    left: 80px; /* Adjust for the sidebar */
+    transition: all 0.5s ease;
+    width: calc(100% - 80px); /* Fill remaining space */
+    padding: 2rem; /* Add padding for space inside */
+    overflow-y: auto; /* Enable scrolling if content overflows vertically */
+}
+
+/* static right-side div */
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*
+============================================
+Footer Content
+============================================
+*/
+.footer-content {
+    background-color: #01012b;
+    color: #d1f7ff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.footer-divider {
+    border: none; /* Remove default border style */
+    border-top: 1px solid #d1f7ff; /* Thin line above the footer links */
+    margin: 0.5rem 0; /* Space above and below the line */
+}
+
+.footer-links {
+    
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: #d1f7ff;
+}
+
+
+/*
+============================================
+Button
+============================================
+*/
+.btn {
+    position: relative; /* centers the btn */
+    color: #d1f7ff;
+    top: 0.4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* btn list stuff */
+.btn ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+/* style btn link tags */
+.btn ul li a {
+    color: 	#d1f7ff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+/* hover styling for btn list items */
+.btn ul li a:hover {
+    background-color: #d1f7ff;
+    color: #01012b; /* Matches the background of the main page */
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.6rem;
+    padding: 0.1rem 0.3rem; /* Add internal spacing */
+    margin: -0.1rem -0.3rem; /* Negative margins to counteract padding */
+    display: inline-block; /* Ensures proper rendering */
+}
+

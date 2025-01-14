@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Side-Bar Test</title>
+        <!-- import custom box icons form web -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+        <div class="sidebar">
+            <div class="top">
+                <!-- Logo + company name at top of bar -->
+                <div class="logo">
+                    <i class="bx bxl-codepen"></i>
+                    <span>Navigation</span>
+                </div>
+                <!-- Menu -->
+                <!-- id to target with JS -->
+                <!-- Hamburger menu: <i class="bx bx-menu" id="btn"></i> -->
+                <i class="bx bx-menu" id="btn"></i>
+            </div>
+            <div class="user">
+                <!-- utilize headshot img -->
+                <img src="img/2024-10-11_pinterest_pfp.jpg" alt="me" class="user-img">
+                <!-- text that will sit beside headshot img -->
+                <div>
+                    <p class="bold">Alex</p>
+                    <p>Suggs</p>
+                </div>
+            </div>
+            <!-- Unordered list of pages -->
+            <ul>
+                <!-- Item in UL: About -->
+                <li>
+                    <a href="index.html">
+                        <!-- Icon -->
+                        <i class='bx bxs-home' ></i>
+                        <span class="nav-item">About</span>
+                    </a>
+                    <span class="tooltip">About</span>
+                </li>
+                <!-- Another item: Portfolio -->
+                <li>
+                    <a href="portfolio.html">
+                        <!-- Icon -->
+                        <i class='bx bxs-terminal'></i>
+                        <span class="nav-item">Portfolio</span>
+                    </a>
+                    <span class="tooltip">Portfolio</span>
+                </li>
+                <!-- Another item: CV -->
+                <li>
+                    <a href="cv.html">
+                        <!-- Icon -->
+                        <i class='bx bxs-message-square-detail'></i>
+                        <span class="nav-item">CV</span>
+                    </a>
+                    <span class="tooltip">CV</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="container">
+                <h1>Portfolio</h1>
+            </div>
+            <!-- Hero w/ Projects -->
+            <div class="containter"></div>
+        
+            <!-- Footer -->
+            <footer class="footer-content">
+                <!-- Horizontal Line for separation -->
+                <hr class="footer-divider">
+
+                <div class="footer-links">
+                    <!-- GitHub Link -->
+                    <a href="https://github.com/catplant" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">
+                        <i class="bx bxl-github"></i> GitHub
+                    </a>
+                    
+                    <!-- LinkedIn Link -->
+                    <a href="https://linkedin.com/in/alexsuggst" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">
+                        <i class="bx bxl-linkedin"></i> LinkedIn
+                    </a>
+                    
+                    <!-- Email Link -->
+                    <a href="mailto:alexsuggst@gmail.com" aria-label="Send me an email">
+                        <i class="bx bx-envelope"></i> Get in Touch
+                    </a>
+                </div>
+            </footer>
+        
+        </div>
+
+    </body>
+
+<!-- JAVASCRIPT -->
+ <script>
+    // grab button id above
+    let btn = document.querySelector("#btn")
+    let sidebar = document.querySelector(".sidebar")
+    // sidebar active by defualt
+    sidebar.classList.toggle("active")
+    // function
+    // selecting "btn" element from code above JS
+    btn.onclick = function () {
+        // toggling CSS class named "active"
+        sidebar.classList.toggle("active")
+    }
+ </script>
+
+</html>

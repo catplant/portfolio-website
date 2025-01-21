@@ -14,7 +14,10 @@ Typography
 /* Base font for body text */
 @font-face {
     font-family: cyberpunkwaifus;
-    src: url(fnt/cyberpunkwaifus.ttf);
+    /* cbpnk: fnt/cyberpunkwaifus.ttf 
+    lexend: fnt/lexend/Lexend-VariableFont_wght.ttf
+    */
+    src: url(fnt/lexend/Lexend-VariableFont_wght.ttf);
 }
 body {
     font-family: 'cyberpunkwaifus', Helvetica, Arial, sans-serif;

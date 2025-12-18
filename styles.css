@@ -1,0 +1,31 @@
+body {
+    color: black;
+    font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+    background-image: url("rgb_background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-color: whitesmoke;
+    border: 1px solid darkgrey;
+    color: #333333;
+    padding: 20px;
+
+    /* Centering logic */
+    width: 60%;
+    max-width: 900px;  /* Prevents it from getting too wide on huge monitors */
+    margin: 50px auto; /* 50px top/bottom, 'auto' centers it horizontally */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 15px;
+}
